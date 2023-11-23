@@ -1,0 +1,2 @@
+# Ex 03:
+A questão não deixa claro como o arquivo de pilha é implementado, mas a execução seguindo a lógica apresentada retorna ou um erro, ou uma mensagem dizendo que a pilha está vazia, logo não poderá desempilhar

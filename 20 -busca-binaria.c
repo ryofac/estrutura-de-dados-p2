@@ -12,6 +12,10 @@ int *listaEntre(int tamanho, int min, int max){
 
 }
 
+// X é o valor que eu quero buscar
+// V é o vetor
+// P é o primeiro elemento do vetor
+// U é o ultimo elemento do vetor
 int binary_search(int x, int v[], int p, int u){
     while (p <= u)
     {

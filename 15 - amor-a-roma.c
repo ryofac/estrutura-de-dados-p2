@@ -15,12 +15,14 @@ int main(){
 
     scanf("%[^\n]s", frase);
 
+    // Percorre a frase inteira, colocando na pilha e na fila
     for(int i = 0; frase[i] != '\0'; i++){
         char actualChar = toupper(frase[i]);
         stackValue(actualChar, invertido);
         enqueue(normal, actualChar);
     }
 
+    // Nesse momento é feita a análise dos elementos da pilha e da fila e analisa se são iguais
     for(int i = 0; frase[i] != '\0'; i++){
         if(popValue(invertido) != dequeue(normal)){
             printf("Não é palíndromo\n");
@@ -28,7 +30,7 @@ int main(){
         }
     }
 
-
+    // Se eu cheguei aqui, a pilha e fila devem guardar valores iguais
     printf("A cadeia é palíndroma\n");
 
     

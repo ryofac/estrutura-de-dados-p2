@@ -38,7 +38,9 @@ int main(){
 
     Stack* openStack = createStack(10);
     int pos = 0;
-    char teste[23] = "while (((m < (n[8]+p)))))";
+    char teste[256];
+    printf("Digite a expressão: ");
+    scanf("%[^\n]s", teste);
     
     for(int i = 0; teste[i] != '\0'; i++){
         char actualChar = teste[i];
@@ -47,12 +49,10 @@ int main(){
         if((isOpenChar(actualChar)) != -1 ){
             // Se o caractere for de abertura, guardar
             stackValue((int) actualChar, openStack);
-            printStack(openStack);
         }
 
         if(isCloseChar(actualChar) != -1){
             if (they_close(getTopValue(openStack), (int) actualChar)) {
-                printf("Deu certo, popando o da pilha \n");
                 popValue(openStack);
             } else{
                 printf("ERRO: o caractere %c na posição %d não fechou \n", actualChar, pos);
@@ -62,6 +62,10 @@ int main(){
         }
 
     }
-    !isEmpty(openStack) ?  printf("Deu errado \n") : printf("Deu certo \n");
+    if(isEmpty(openStack)){
+        printf("Tudo certo, a expressão está balanceada \n");
+    } else {
+        printf("ERRO: a expressão não está balanceada, o caractere %c não fechou \n", (char) getTopValue(openStack));
+    }
     return 0;
 }
